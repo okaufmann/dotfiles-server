@@ -1,0 +1,86 @@
+#!/usr/bin/env bash
+
+function ips() {
+    nameservers=(8.8.8.8 8.8.4.4 1.1.1.1 195.129.12.122 192.76.144.66 158.43.240.3 77.88.8.8)
+    type=${2:-A}
+    for i in "${nameservers[@]}";
+    do
+        echo "$i"
+        dig @"$i" +nocmd "$1" $type +multiline +noall +answer
+        echo
+    done
+}
+
+function wholisten() {
+    lsof -nP -i4TCP:$1 | grep LISTEN
+}
+
+# Create a new directory and enter it
+function mkd() {
+    mkdir -p "$@" && cd "$@"
+}
+
+# All the dig info
+function digga() {
+    type=${2:-A}
+    dig +nocmd "$1" "$type" +multiline +noall +answer
+}
+
+archive () {
+    zip -r "$1".zip -i "$1" ;
+}
+
+function removehost() {
+    ssh-keygen -R "$1"
+}
+
+#  Commit everything
+function commit() {
+    commitMessage="$1"
+
+    if [ "$commitMessage" = "" ]; then
+        commitMessage="wip"
+    fi
+
+    git add .
+    eval "git commit -a -m '${commitMessage}'"
+}
+
+# push to remote origin
+function push() {
+    target=${1:-origin}
+    branch=$(git branch | awk '/\*/ { print $2; }')
+    git push $target $branch
+}
+
+# force push current branch to remote origin
+function pushforce() {
+    branch=$(git branch | awk '/\*/ { print $2; }')
+    git push origin +$branch
+}
+
+function phpversion() {
+    version=$(php --version | head -n 1 | cut -d " " -f 2 | cut -d "." -f 1,2)
+    echo $version
+}
+
+function scheduler() {
+    while :; do
+        php artisan schedule:run
+        echo "Sleeping 60 seconds..."
+        sleep 60
+    done
+}
+
+function phpini() {
+    iniPath=$(php -i | grep /.+/php.ini -oE)
+    vim $iniPath
+}
+
+function watchlog() {
+    tail -f -n 50 storage/logs/laravel.log
+}
+
+function watchdir() {
+    watch -n 1 -d find .
+}

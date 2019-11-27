@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+
+alias dc="docker-compose"
+
+alias reloadcli="source $HOME/.zshrc"
+alias zshrc="vim ~/.zshrc"
+alias publickey="cat ~/.ssh/id_rsa.pub"
+
+alias cddotfiles="cd ~/.dotfiles"
+
+# PHP
+alias a="artisan"
+alias c="composer"
+alias cu="composer update"
+alias cr="composer require"
+alias ci="composer install"
+alias cda="composer dump-autoload -o"
+
+alias dracaris='git reset --hard;git clean -df'
+
+alias sshconfig="com ~/.ssh/config"
+
+# Tool replacements
+alias man=tldr
+alias cat='colorize_via_pygmentize'
+alias ping='prettyping --nolegend'
+
+# List all files colorized in long format
+alias l="ls -laF"
+
+# IP addresses
+alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias localip="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
+
+# Ports
+alias ports="lsof -nP -i4TCP | grep LISTEN"
+
+# Enable aliases to be sudo’ed
+alias sudo='sudo '
