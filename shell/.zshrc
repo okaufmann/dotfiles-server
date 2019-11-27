@@ -65,6 +65,7 @@ plugins=(
     npm
     z
     colorize
+    zsh-autosuggestions
 )
 
 source $ZSH/oh-my-zsh.sh
