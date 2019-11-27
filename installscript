@@ -39,27 +39,27 @@ sudo apt-get update
 
 echo 'Install wget'
 echo '------------'
-sudo apt-get install wget
+sudo apt-get install -y wget
 
 echo 'Install httpie'
 echo '--------------'
-sudo apt-get install httpie
+sudo apt-get install -y httpie
 
 echo 'Install ncdu'
 echo '------------'
-sudo apt-get install ncdu
+sudo apt-get install -y ncdu
 
 echo 'Install ack'
 echo '-----------'
-sudo apt-get install ack
+sudo apt-get install -y ack
 
 echo 'Install tldr'
 echo '-----------'
-sudo apt-get install tldr
+sudo apt-get install -y tldr
 
 echo 'Install tldr'
 echo '-----------'
-sudo apt-get install vim
+sudo apt-get install -y vim
 
 echo 'Install zsh-autosuggestions'
 echo '---------------------------'
@@ -68,7 +68,7 @@ sudo sh -c "echo 'deb http://download.opensuse.org/repositories/shells:/zsh-user
 wget -nv https://download.opensuse.org/repositories/shells:zsh-users:zsh-autosuggestions/xUbuntu_18.04/Release.key -O Release.key
 sudo apt-key add - < Release.key
 sudo apt-get update
-sudo apt-get install zsh-autosuggestions
+sudo apt-get install -y zsh-autosuggestions
 
 echo 'Install irak/prestissimo'
 echo '---------------------------------'
