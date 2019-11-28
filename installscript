@@ -37,7 +37,6 @@ ln -s $HOME/.dotfiles/shell/.vim $HOME/.vim
 
 # Activate z
 cd ~/.dotfiles/shell
-chmod +x z.sh
 rm -f $HOME/.z
 ln -s $HOME/.dotfiles/shell/z.sh $HOME/.z
 
