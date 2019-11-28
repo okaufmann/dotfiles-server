@@ -64,7 +64,7 @@ prompt_end() {
 # Context: user@hostname (who am I and where am I)
 prompt_context() {
   local user=`whoami`
-  prompt_segment black default "%(!.%{%F{yellow}%}.)$user%m"
+  prompt_segment $PRIMARY_FG default " %(!.%{%F{yellow}%}.)$user@%m "
 }
 
 # Git: branch/detached head, dirty status
