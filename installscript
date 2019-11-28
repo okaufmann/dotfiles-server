@@ -79,9 +79,11 @@ echo '---------------------------'
 # from https://software.opensuse.org/download.html?project=shells%3Azsh-users%3Azsh-autosuggestions&package=zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
-echo 'Install irak/prestissimo'
-echo '---------------------------------'
-composer global require hirak/prestissimo # need to be installed via composer directly
+if which composer >/dev/null; then
+    echo 'Install irak/prestissimo'
+    echo '---------------------------------'
+    composer global require hirak/prestissimo # need to be installed via composer directly
+fi
 
 echo '++++++++++++++++++++++++++++++'
 echo '++++++++++++++++++++++++++++++'
