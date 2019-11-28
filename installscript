@@ -66,6 +66,10 @@ echo 'Install vim'
 echo '-----------'
 sudo apt-get install -y vim
 
+echo 'Install nmap'
+echo '-----------'
+sudo apt-get install -y nmap
+
 echo 'Install zsh-autosuggestions'
 echo '---------------------------'
 # from https://software.opensuse.org/download.html?project=shells%3Azsh-users%3Azsh-autosuggestions&package=zsh-autosuggestions
