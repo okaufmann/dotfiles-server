@@ -3,6 +3,10 @@
 # Hide "last login" line when starting a new terminal session
 touch $HOME/.hushlogin
 
+echo 'Install zsh'
+echo '------------'
+sudo apt-get install -y zsh
+
 # Install zsh
 echo 'Install oh-my-zsh'
 echo '-----------------'
