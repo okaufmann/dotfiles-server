@@ -1,12 +1,14 @@
 #!/usr/bin/env bash
 
-alias dc="docker-compose"
-
-alias reloadcli="source $HOME/.zshrc"
-alias zshrc="vim ~/.zshrc"
-alias publickey="cat ~/.ssh/id_rsa.pub"
-
+# Oh my zsh config helpers
+# ---------------
 alias cddotfiles="cd ~/.dotfiles"
+alias reloadcli="source $HOME/.zshrc"
+
+# Openers
+# ---------------
+alias zshrc="vim ~/.zshrc"
+alias sshconfig="vim ~/.ssh/config"
 
 # PHP
 alias a="artisan"
@@ -16,18 +18,20 @@ alias cr="composer require"
 alias ci="composer install"
 alias cda="composer dump-autoload -o"
 
+# git
 alias dracaris='git reset --hard;git clean -df'
-
-alias sshconfig="com ~/.ssh/config"
 
 # Tool replacements
 alias man=tldr
 alias cat='colorize_via_pygmentize'
 alias ping='prettyping --nolegend'
-alias grep="grep --color=auto"
-
+alias grep="grep --color=auto"$
+alias dc="docker-compose"
 # List all files colorized in long format
 alias l="ls -laF"
+
+# SSH
+alias publickey="cat ~/.ssh/id_rsa.pub"
 
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"

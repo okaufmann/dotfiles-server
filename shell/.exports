@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+# Path to dotfiles
 export DOTFILESDIR="$HOME/.dotfiles"
 
 # Make vim the default editor
@@ -11,9 +12,8 @@ export LESS_TERMCAP_md="$ORANGE"
 # Don’t clear the screen after quitting a manual page
 export MANPAGER="less -X"
 
+# Config autosuggest color
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=5'
-
-# PATH extensions
 
 # Prefer US English and use UTF-8
 export LANG="en_US.UTF-8"
