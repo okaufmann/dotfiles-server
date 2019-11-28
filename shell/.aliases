@@ -24,6 +24,7 @@ alias sshconfig="com ~/.ssh/config"
 alias man=tldr
 alias cat='colorize_via_pygmentize'
 alias ping='prettyping --nolegend'
+alias grep="grep --color=auto"
 
 # List all files colorized in long format
 alias l="ls -laF"
