@@ -64,10 +64,7 @@ prompt_end() {
 # Context: user@hostname (who am I and where am I)
 prompt_context() {
   local user=`whoami`
-
-  if [[ "$user" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
-    prompt_segment black default "%(!.%{%F{yellow}%}.)$user%m"
-  fi
+  prompt_segment black default "%(!.%{%F{yellow}%}.)$user%m"
 }
 
 # Git: branch/detached head, dirty status
