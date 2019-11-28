@@ -34,6 +34,10 @@ function removehost() {
     ssh-keygen -R "$1"
 }
 
+function scanhost() {
+    ssh-keyscan -H "$1" >> ~/.ssh/known_hosts
+}
+
 #  Commit everything
 function commit() {
     commitMessage="$1"
@@ -75,6 +79,13 @@ function scheduler() {
 function phpini() {
     iniPath=$(php -i | grep /.+/php.ini -oE)
     vim $iniPath
+}
+
+function scanNetwork() {
+    local defaultNet="192.168.1.0/24"
+    local network="${1:-$defaultNet}"
+    echo "scanning network $network"
+    nmap -sn $network -oG - | awk '/Up$/{print $2 " " $3}'
 }
 
 function watchlog() {
