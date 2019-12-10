@@ -66,6 +66,7 @@ plugins=(
     z
     colorize
     zsh-autosuggestions
+    artisan
 )
 
 source $ZSH/oh-my-zsh.sh

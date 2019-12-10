@@ -18,6 +18,10 @@ echo 'Install zsh theme remy'
 echo '------------'
 ln -s $HOME/.dotfiles/zshrc/remy.zsh-theme $HOME/.oh-my-zsh/custom/themes/remy.zsh-theme
 
+echo 'Installing zsh plugins'
+echo '------------'
+git clone https://github.com/jessarcher/zsh-artisan.git ~/.oh-my-zsh/custom/plugins/artisan
+
 echo 'Create symlinks'
 echo '------------'
 
