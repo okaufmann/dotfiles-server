@@ -92,10 +92,6 @@ fi
 echo '++++++++++++++++++++++++++++++'
 echo '++++++++++++++++++++++++++++++'
 echo 'All done!'
-echo 'Things to do to make the agnoster terminal theme work:'
-echo '1. Install menlo patched font included in ~/.dotfiles/misc https://gist.github.com/qrush/1595572/raw/Menlo-Powerline.otf'
-echo '2. Install patched solarized theme included in ~/.dotfiles/misc'
-echo '3. Allow sudo permittance with fingerprint. Futher instructions in ~/.dotfiles/misc/fingerprint.sh'
 
 echo '++++++++++++++++++++++++++++++'
 echo '++++++++++++++++++++++++++++++'
