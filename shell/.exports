@@ -17,7 +17,7 @@ export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=5'
 
 # setup fzf
 export FZF_DEFAULT_OPTS="--bind='ctrl-o:execute(code {})+abort'"
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source /usr/share/doc/fzf/examples/key-bindings.zsh
 
 # Prefer US English and use UTF-8
 export LANG="en_US.UTF-8"
