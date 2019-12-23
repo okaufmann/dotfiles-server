@@ -80,7 +80,13 @@ sudo apt-get install -y nmap
 
 echo 'Install fzf'
 echo '-----------'
-sudo apt-get install fzf
+linuxDistr=$(awk -F= '/^ID=/{print $2}' /etc/os-release)
+if [ "$linuxDistr" == "debian" ] || [ "$linuxDistr" == "rasbian" ]; then
+    sudo apt-get install fzf
+else
+    git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+    ~/.fzf/install
+fi
 
 echo 'Install zsh-autosuggestions'
 echo '---------------------------'
