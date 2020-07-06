@@ -12,8 +12,13 @@ function ips() {
 }
 
 function wholisten() {
-    netstat -ltnp | grep -w ':$1'
+    sudo netstat -ltnp | grep -w ':$1'
 }
+
+function ports() {
+    sudo netstat -ltnp
+}
+
 
 # Create a new directory and enter it
 function mkd() {
