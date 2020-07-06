@@ -12,7 +12,7 @@ function ips() {
 }
 
 function wholisten() {
-    sudo netstat -ltnp | grep -w ':$1'
+    sudo netstat -ltnp | grep -w ":$1"
 }
 
 function ports() {
