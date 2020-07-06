@@ -78,6 +78,10 @@ echo 'Install nmap'
 echo '-----------'
 sudo apt-get install -y nmap
 
+echo 'Install prettyping'
+echo '---------------------------'
+sudo apt-get install prettyping -y
+
 echo 'Install fzf'
 echo '-----------'
 linuxDistr=$(awk -F= '/^ID=/{print $2}' /etc/os-release)
