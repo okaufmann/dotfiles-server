@@ -50,6 +50,8 @@ ln -s $HOME/.dotfiles/shell/z.sh $HOME/.z
 
 sudo apt-get update
 
+linuxDistr=$(awk -F= '/^ID=/{print $2}' /etc/os-release)
+
 echo 'Install wget'
 echo '------------'
 sudo apt-get install -y wget
@@ -80,11 +82,16 @@ sudo apt-get install -y nmap
 
 echo 'Install prettyping'
 echo '---------------------------'
-sudo apt-get install prettyping -y
+if [ "$linuxDistr" == "debian" ] || [ "$linuxDistr" == "ubuntu" ]; then
+    sudo apt-get install prettyping -y
+else
+    curl -O https://raw.githubusercontent.com/denilsonsa/prettyping/master/prettyping
+    chmod +x prettyping
+    sudo mv prettyping /usr/bin/prettyping
+fi
 
 echo 'Install fzf'
 echo '-----------'
-linuxDistr=$(awk -F= '/^ID=/{print $2}' /etc/os-release)
 if [ "$linuxDistr" == "debian" ] || [ "$linuxDistr" == "rasbian" ]; then
     sudo apt-get install fzf
 else
