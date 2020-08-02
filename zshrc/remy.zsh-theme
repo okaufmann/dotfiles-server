@@ -64,7 +64,7 @@ prompt_end() {
 # Context: user@hostname (who am I and where am I)
 prompt_context() {
   local user=`whoami`
-  prompt_segment red white " %(!.%{%F{yellow}%}.)$user@%m "
+  prompt_segment red white " %(!.%{%F{white}%}.)$user@%m "
 }
 
 # Git: branch/detached head, dirty status
@@ -99,7 +99,7 @@ prompt_status() {
   [[ $UID -eq 0 ]] && symbols+="%{%F{white}%}⚡"
   [[ $(jobs -l | wc -l) -gt 0 ]] && symbols+="%{%F{cyan}%}⚙"
 
-  [[ -n "$symbols" ]] && prompt_segment black white "$symbols"
+  [[ -n "$symbols" ]] && prompt_segment black default "$symbols"
 }
 
 ## Main prompt
