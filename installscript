@@ -80,6 +80,10 @@ echo 'Install nmap'
 echo '-----------'
 sudo apt-get install -y nmap
 
+echo 'Install nmap'
+echo '-----------'
+sudo apt-get install -y dnsutils
+
 echo 'Install prettyping'
 echo '---------------------------'
 if [ "$linuxDistr" == "debian" ] || [ "$linuxDistr" == "ubuntu" ]; then
