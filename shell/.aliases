@@ -12,7 +12,9 @@ alias sshconfig="vim ~/.ssh/config"
 
 # PHP
 alias a="artisan"
+alias a8="php8.0 artisan"
 alias c="composer"
+alias c8="php8.0 /usr/local/bin/composer"
 alias cu="composer update"
 alias cr="composer require"
 alias ci="composer install"
