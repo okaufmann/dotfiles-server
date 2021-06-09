@@ -21,6 +21,7 @@ ln -s $HOME/.dotfiles/zshrc/remy.zsh-theme $HOME/.oh-my-zsh/custom/themes/remy.z
 echo 'Installing zsh plugins'
 echo '------------'
 git clone https://github.com/jessarcher/zsh-artisan.git ~/.oh-my-zsh/custom/plugins/artisan
+git clone https://github.com/agkozak/zsh-z $ZSH_CUSTOM/plugins/zsh-z
 
 echo 'Create symlinks'
 echo '------------'

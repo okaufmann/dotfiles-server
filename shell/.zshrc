@@ -63,7 +63,7 @@ plugins=(
     git
     yarn
     npm
-    z
+    zsh-z
     colorize
     zsh-autosuggestions
     artisan
