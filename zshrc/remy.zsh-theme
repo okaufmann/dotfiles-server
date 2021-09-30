@@ -102,6 +102,12 @@ prompt_status() {
   [[ -n "$symbols" ]] && prompt_segment black default "$symbols"
 }
 
+iterm_shellmark() {
+  if [ -n "$iterm2_prompt_mark" ]; then
+    echo -n "%{$(iterm2_prompt_mark)%}"
+  fi
+}
+
 ## Main prompt
 build_prompt() {
   RETVAL=$?
@@ -112,5 +118,5 @@ build_prompt() {
   prompt_end
 }
 
-PROMPT='%{%f%b%k%}$(build_prompt)
+PROMPT='$(iterm_shellmark)%{%f%b%k%}$(build_prompt)
 » '
