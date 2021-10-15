@@ -1,13 +1,14 @@
 "-------- General -------"
 
 syntax enable
+set background=dark
+colorscheme solarized
 
 "256 colours, please
 set t_Co=256
 
 "line numbers"
 set number
-
 
 "-------- Search -------"
 "highlist search"
