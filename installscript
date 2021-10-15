@@ -93,6 +93,10 @@ echo 'Install netstat'
 echo '-----------'
 sudo apt-get install -y net-tools
 
+echo 'Install screen'
+echo '-----------'
+sudo apt-get install -y screen
+
 echo 'Install prettyping'
 echo '---------------------------'
 if [ "$linuxDistr" == "debian" ] || [ "$linuxDistr" == "ubuntu" ]; then
