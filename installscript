@@ -44,6 +44,9 @@ ln -s $HOME/.dotfiles/shell/.vimrc $HOME/.vimrc
 rm $HOME/.vim
 ln -s $HOME/.dotfiles/shell/.vim $HOME/.vim
 
+# install Vundle for vim Plugins
+git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/plugin/Vundle.vim
+
 # Screen config
 rm $HOME/.screenrc
 ln -s $HOME/.dotfiles/shell/.screenrc $HOME/.screenrc
