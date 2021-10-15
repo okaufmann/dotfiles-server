@@ -1,5 +1,4 @@
 "-------- General -------"
-
 syntax enable
 set background=dark
 colorscheme solarized
@@ -10,6 +9,7 @@ set t_Co=256
 "line numbers"
 set number
 
+
 "-------- Search -------"
 "highlist search"
 set hlsearch
@@ -18,8 +18,6 @@ set incsearch
 
 "-------- Tabs & indentation -------"
 
-filetype plugin indent on
-set expandtab
 set shiftwidth=4
 set tabstop=4
 set softtabstop=4
@@ -36,8 +34,8 @@ set scrolloff=3
 set sidescrolloff=5
 " Scroll sideways a character at a time, rather than a screen at a time
 set sidescroll=1
+
 " Backspace behaviour
-set nocompatible
 set backspace=2
 
 
@@ -80,3 +78,5 @@ autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "norm
 
 "-------- Delete trailing whitespaces on saving a file-------"
 autocmd BufWritePre * :%s/\s\+$//e
+
+source ~/.vim/.vimrc
