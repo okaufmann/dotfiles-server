@@ -68,3 +68,14 @@ augroup END
 "make it easy to edit the vimrc file"
 nmap ,ev :tabedit $MYVIMRC<cr>
 nmap ,<space> :nohlsearch<cr>
+
+set encoding=utf-8
+set directory=~/.vim/swp " *.swp files will end up here
+
+
+"-------- When editing a file, always jump to the last known cursor position -------"
+autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
+
+
+"-------- Delete trailing whitespaces on saving a file-------"
+autocmd BufWritePre * :%s/\s\+$//e

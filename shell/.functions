@@ -144,3 +144,8 @@ colorize_via_pygmentize() {
         fi
     done
 }
+
+
+function silent() {
+   "$@" >& /dev/null
+}
