@@ -1,5 +1,14 @@
 #!/usr/bin/env bash
 
+function updateDotfiles() {
+    currentDir=$(pwd)
+    cd $HOME/.dotfiles
+    git fetch origin main
+    git checkout main
+    git reset --hard origin/main
+    cd $currentDir
+}
+
 function ips() {
     nameservers=(8.8.8.8 8.8.4.4 1.1.1.1 195.129.12.122 192.76.144.66 158.43.240.3 77.88.8.8)
     type=${2:-A}
