@@ -44,6 +44,10 @@ ln -s $HOME/.dotfiles/shell/.vimrc $HOME/.vimrc
 rm $HOME/.vim
 ln -s $HOME/.dotfiles/shell/.vim $HOME/.vim
 
+# Screen config
+rm $HOME/.screenrc
+ln -s $HOME/.dotfiles/shell/.screenrc $HOME/.screenrc
+
 # Activate z
 cd ~/.dotfiles/shell
 rm -f $HOME/.z
