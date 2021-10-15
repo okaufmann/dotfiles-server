@@ -2,7 +2,7 @@
 startup_message off
 
 # use zsh as shell
-shell "$(which zsh)"
+shell "/usr/bin/zsh"
 
 # Disable visual bell
 vbell off
