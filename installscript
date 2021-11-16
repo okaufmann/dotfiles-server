@@ -46,15 +46,22 @@ ln -s $HOME/.dotfiles/shell/.vim $HOME/.vim
 
 # install Vundle for vim Plugins
 git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/plugin/Vundle.vim
+mkdir -p ~/.vim-swp
+vim +PluginInstall +qall
 
 # Screen config
 rm $HOME/.screenrc
 ln -s $HOME/.dotfiles/shell/.screenrc $HOME/.screenrc
 
-# Activate z
+echo 'Activate z'
+echo '------------'
 cd ~/.dotfiles/shell
 rm -f $HOME/.z
 ln -s $HOME/.dotfiles/shell/z.sh $HOME/.z
+
+echo 'install z fork'
+echo '------------'
+git clone https://github.com/agkozak/zsh-z  $HOME/.oh-my-zsh/custom/plugins/zsh-z
 
 sudo apt-get update
 
