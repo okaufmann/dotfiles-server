@@ -20,8 +20,10 @@ ln -s $HOME/.dotfiles/zshrc/remy.zsh-theme $HOME/.oh-my-zsh/custom/themes/remy.z
 
 echo 'Installing zsh plugins'
 echo '------------'
-git clone https://github.com/jessarcher/zsh-artisan.git ~/.oh-my-zsh/custom/plugins/artisan
+git clone https://github.com/jessarcher/zsh-artisan.git $ZSH_CUSTOM/plugins/artisan
 git clone https://github.com/agkozak/zsh-z $ZSH_CUSTOM/plugins/zsh-z
+# from https://software.opensuse.org/download.html?project=shells%3Azsh-users%3Azsh-autosuggestions&package=zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
 
 echo 'Create symlinks'
 echo '------------'
@@ -59,12 +61,9 @@ cd ~/.dotfiles/shell
 rm -f $HOME/.z
 ln -s $HOME/.dotfiles/shell/z.sh $HOME/.z
 
-echo 'install z fork'
+echo 'update apt chache and find linux distro'
 echo '------------'
-git clone https://github.com/agkozak/zsh-z  $HOME/.oh-my-zsh/custom/plugins/zsh-z
-
 sudo apt-get update
-
 linuxDistr=$(awk -F= '/^ID=/{print $2}' /etc/os-release)
 
 echo 'Install wget'
@@ -125,11 +124,6 @@ else
     git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
     ~/.fzf/install
 fi
-
-echo 'Install zsh-autosuggestions'
-echo '---------------------------'
-# from https://software.opensuse.org/download.html?project=shells%3Azsh-users%3Azsh-autosuggestions&package=zsh-autosuggestions
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
 echo 'Are you using iTerm?'
 echo '------------------'
