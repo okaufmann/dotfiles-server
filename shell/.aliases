@@ -29,7 +29,7 @@ alias man=tldr
 alias cat='colorize_via_pygmentize'
 alias ping='prettyping --nolegend'
 alias grep="grep --color=auto"
-alias dc="docker-compose"
+alias dc="docker compose"
 alias preview="fzf --preview 'bat --color \"always\" {}'"
 # List all files colorized in long format
 alias l="ls -laF"
