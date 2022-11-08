@@ -20,10 +20,10 @@ ln -s $HOME/.dotfiles/zshrc/remy.zsh-theme $HOME/.oh-my-zsh/custom/themes/remy.z
 
 echo 'Installing zsh plugins'
 echo '------------'
-git clone https://github.com/jessarcher/zsh-artisan.git $ZSH_CUSTOM/plugins/artisan
-git clone https://github.com/agkozak/zsh-z $ZSH_CUSTOM/plugins/zsh-z
+git clone https://github.com/jessarcher/zsh-artisan.git $HOME/.oh-my-zsh/custom/plugins/artisan
+git clone https://github.com/agkozak/zsh-z $HOME/.oh-my-zsh/custom/plugins/zsh-z
 # from https://software.opensuse.org/download.html?project=shells%3Azsh-users%3Azsh-autosuggestions&package=zsh-autosuggestions
-git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-autosuggestions $HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 
 echo 'Create symlinks'
 echo '------------'
