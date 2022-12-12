@@ -41,7 +41,7 @@ function digga() {
     dig +nocmd "$1" "$type" +multiline +noall +answer
 }
 
-archive () {
+function archive () {
     zip -r "$1".zip "$1" ;
 }
 
@@ -111,7 +111,7 @@ function watchdir() {
     watch -n 1 -d find .
 }
 
-colorize_via_pygmentize() {
+function colorize_via_pygmentize() {
     if ! (( $+commands[pygmentize] )); then
         echo "package 'Pygments' is not installed!"
         return 1
