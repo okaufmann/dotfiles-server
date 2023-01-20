@@ -1,5 +1,13 @@
 #!/usr/bin/env bash
 
+function ensurePackage() {
+    if ! command -v "$1" &> /dev/null
+    then
+        echo "Installing $1"
+        sudo apt-get install "$1" -y
+    fi
+}
+
 function updateDotfiles() {
     currentDir=$(pwd)
     cd $HOME/.dotfiles
@@ -11,6 +19,9 @@ function updateDotfiles() {
 }
 
 function ips() {
+
+    ensurePackage dnsutils
+
     nameservers=(8.8.8.8 8.8.4.4 1.1.1.1 195.129.12.122 192.76.144.66 158.43.240.3 77.88.8.8)
     type=${2:-A}
     for i in "${nameservers[@]}";
@@ -22,10 +33,14 @@ function ips() {
 }
 
 function wholisten() {
+    ensurePackage net-tools
+
     sudo netstat -ltnp | grep ":$1"
 }
 
 function ports() {
+    ensurePackage net-tools
+
     sudo netstat -ltnp
 }
 
@@ -37,11 +52,17 @@ function mkd() {
 
 # All the dig info
 function digga() {
+
+    ensurePackage dnsutils
+
     type=${2:-A}
     dig +nocmd "$1" "$type" +multiline +noall +answer
 }
 
 function archive () {
+
+    ensurePackage zip
+
     zip -r "$1".zip "$1" ;
 }
 
@@ -97,6 +118,9 @@ function phpini() {
 }
 
 function scanNetwork() {
+
+    ensurePackage nmap
+
     local defaultNet="192.168.1.0/24"
     local network="${1:-$defaultNet}"
     echo "scanning network $network"
@@ -107,8 +131,17 @@ function watchlog() {
     tail -f -n 50 storage/logs/laravel.log
 }
 
-function watchdir() {
-    watch -n 1 -d find .
+function silent() {
+   "$@" >& /dev/null
+}
+
+function watchfolder () {
+
+    ensurePackage fswatch
+
+	folder=${1:-$(pwd)}
+	echo "start watching $folder"
+	fswatch -r $folder
 }
 
 function colorize_via_pygmentize() {
@@ -146,6 +179,3 @@ function colorize_via_pygmentize() {
 }
 
 
-function silent() {
-   "$@" >& /dev/null
-}
