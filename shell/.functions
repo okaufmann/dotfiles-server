@@ -139,11 +139,10 @@ function watchfolder () {
 
     ensurePackage fswatch
 
-	folder=${1:-$(pwd)}
-	echo "start watching $folder"
-	fswatch -r $folder
+    folder=${1:-$(pwd)}
+    echo "start watching $folder"
+    fswatch --recursive --event-flags --event-flag-separator=" | " --timestamp --format-time="%Y-%m-%d %H:%M:%S %Z: " $folder
 }
-
 function colorize_via_pygmentize() {
     if ! (( $+commands[pygmentize] )); then
         echo "package 'Pygments' is not installed!"
