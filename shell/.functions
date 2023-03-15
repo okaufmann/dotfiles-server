@@ -135,14 +135,40 @@ function silent() {
    "$@" >& /dev/null
 }
 
-function watchfolder () {
-
+function watchfolder() {
     ensurePackage fswatch
 
     folder=${1:-$(pwd)}
     echo "start watching $folder"
     fswatch --recursive --event-flags --event-flag-separator=" | " --timestamp --format-time="%Y-%m-%d %H:%M:%S %Z: " $folder
 }
+
+function fixHostnameForITerm() {
+    # fix hostname for iTerm
+    # https://gitlab.com/gnachman/iterm2/-/wikis/scp-not-connecting#how-can-i-override-the-hostname
+    echo 'Fix hostname for iTerm'
+    echo '------------------'
+    hostname=$(hostname -f)
+    # if it ends in .localdomain, remove it
+    if [[ $hostname == *.localdomain ]]; then
+        hostname=${hostname%.localdomain}
+    fi
+
+    # if it does not end in .novu.ch add it
+    if [[ $hostname != *.novu.ch ]]; then
+        hostname=$hostname.novu.ch
+    fi
+
+    # check if file ~/.dotfiles-custom/shell/.exports does exist. If not, create it (also ensure folder path exists)
+    if [ ! -f $HOME/.dotfiles-custom/shell/.exports ]; then
+        mkdir -p $HOME/.dotfiles-custom/shell
+        touch $HOME/.dotfiles-custom/shell/.exports
+    fi
+
+    # add export to ~/.dotfiles-custom/shell/.exports
+    echo "export iterm2_hostname=$hostname" >> $HOME/.dotfiles-custom/shell/.exports
+}
+
 function colorize_via_pygmentize() {
     if ! (( $+commands[pygmentize] )); then
         echo "package 'Pygments' is not installed!"
