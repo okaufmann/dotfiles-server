@@ -134,8 +134,11 @@ if [[ $reply =~ ^[Yy]$ ]]
 then
     curl -L https://iterm2.com/shell_integration/install_shell_integration_and_utilities.sh | SHELL=zsh bash
 
+    echo 'Fix hostname for iTerm'
+    echo '------------------'
     source ~/.dotfiles/shell/.functions
     fixHostnameForITerm
+    reloadcli
 fi
 
 echo '++++++++++++++++++++++++++++++'

@@ -146,8 +146,6 @@ function watchfolder() {
 function fixHostnameForITerm() {
     # fix hostname for iTerm
     # https://gitlab.com/gnachman/iterm2/-/wikis/scp-not-connecting#how-can-i-override-the-hostname
-    echo 'Fix hostname for iTerm'
-    echo '------------------'
     hostname=$(hostname -f)
     # if it ends in .localdomain, remove it
     if [[ $hostname == *.localdomain ]]; then
