@@ -165,6 +165,8 @@ function fixHostnameForITerm() {
 
     # add export to ~/.dotfiles-custom/shell/.exports
     echo "export iterm2_hostname=$hostname" >> $HOME/.dotfiles-custom/shell/.exports
+
+    reloadcli
 }
 
 function colorize_via_pygmentize() {

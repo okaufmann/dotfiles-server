@@ -138,7 +138,6 @@ then
     echo '------------------'
     source ~/.dotfiles/shell/.functions
     fixHostnameForITerm
-    reloadcli
 fi
 
 echo '++++++++++++++++++++++++++++++'
