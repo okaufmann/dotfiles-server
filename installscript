@@ -106,6 +106,10 @@ echo 'Install screen'
 echo '-----------'
 sudo apt-get install -y screen
 
+echo 'Install screen'
+echo '-----------'
+sudo apt-get install -y bat
+
 echo 'Install prettyping'
 echo '---------------------------'
 if [ "$linuxDistr" == "debian" ] || [ "$linuxDistr" == "ubuntu" ]; then
