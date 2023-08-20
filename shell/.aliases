@@ -26,7 +26,7 @@ alias dracaris='git reset --hard;git clean -df'
 
 # Tool replacements
 alias man=tldr
-alias cat='bat'
+alias cat='batcat'
 alias ping='prettyping --nolegend'
 alias grep="grep --color=auto"
 alias dc="docker compose"
