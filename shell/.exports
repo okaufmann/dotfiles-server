@@ -31,7 +31,4 @@ export LC_CTYPE=en_US.utf-8
 export PATH=$PATH:/sbin
 
 # # source iterm shell extensions if available
-# ITERM_INTEGRATION_FILE="$HOME/.iterm2_shell_integration.zsh"
-# if test -f "$ITERM_INTEGRATION_FILE"; then
-#     source $ITERM_INTEGRATION_FILE
-# fi
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"

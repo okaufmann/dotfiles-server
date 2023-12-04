@@ -152,11 +152,6 @@ function fixHostnameForITerm() {
         hostname=${hostname%.localdomain}
     fi
 
-    # if it does not end in .novu.ch add it
-    if [[ $hostname != *.novu.ch ]]; then
-        hostname=$hostname.novu.ch
-    fi
-
     # check if file ~/.dotfiles-custom/shell/.exports does exist. If not, create it (also ensure folder path exists)
     if [ ! -f $HOME/.dotfiles-custom/shell/.exports ]; then
         mkdir -p $HOME/.dotfiles-custom/shell
