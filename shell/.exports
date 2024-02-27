@@ -30,8 +30,5 @@ export LC_CTYPE=en_US.utf-8
 # https://www.raspberrypi.org/forums/viewtopic.php?t=23405#p218792
 export PATH=$PATH:/sbin
 
-# load zsh-autosuggestions
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-
 # # source iterm shell extensions if available
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"

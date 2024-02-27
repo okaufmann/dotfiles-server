@@ -63,6 +63,7 @@ plugins=(
     git
     z
     artisan
+    zsh-autosuggestions
 )
 
 source $ZSH/oh-my-zsh.sh

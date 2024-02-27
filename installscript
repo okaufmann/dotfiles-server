@@ -22,6 +22,7 @@ if [ ! -d "$HOME/.oh-my-zsh" ]; then
     echo 'Installing zsh plugins'
     echo '------------'
     git clone https://github.com/jessarcher/zsh-artisan.git $HOME/.oh-my-zsh/custom/plugins/artisan
+    git clone https://github.com/zsh-users/zsh-autosuggestions $HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 else
     omz update
 fi
