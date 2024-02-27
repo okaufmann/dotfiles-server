@@ -14,12 +14,12 @@ function updateDotfiles() {
     git fetch origin main
     git checkout main
     git reset --hard origin/main
+    sh ./installscript
     cd $currentDir
     reloadcli
 }
 
 function ips() {
-
     ensurePackage dnsutils
 
     nameservers=(8.8.8.8 8.8.4.4 1.1.1.1 195.129.12.122 192.76.144.66 158.43.240.3 77.88.8.8)
@@ -52,7 +52,6 @@ function mkd() {
 
 # All the dig info
 function digga() {
-
     ensurePackage dnsutils
 
     type=${2:-A}
@@ -60,7 +59,6 @@ function digga() {
 }
 
 function archive () {
-
     ensurePackage zip
 
     zip -r "$1".zip "$1" ;
@@ -118,7 +116,6 @@ function phpini() {
 }
 
 function scanNetwork() {
-
     ensurePackage nmap
 
     local defaultNet="192.168.1.0/24"

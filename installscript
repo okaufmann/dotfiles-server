@@ -10,21 +10,21 @@ sudo apt-get install -y zsh
 # Install zsh
 echo 'Install oh-my-zsh'
 echo '-----------------'
-rm -rf $HOME/.oh-my-zsh
-curl -L https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
-chsh -s `which zsh`
 
-echo 'Install zsh theme remy'
-echo '------------'
-ln -s $HOME/.dotfiles/zshrc/remy.zsh-theme $HOME/.oh-my-zsh/custom/themes/remy.zsh-theme
-ln -s $HOME/.dotfiles/zshrc/cobalt2.zsh-theme $HOME/.oh-my-zsh/custom/themes/cobalt2.zsh-theme
+if [ ! -d "$HOME/.oh-my-zsh" ]; then
+    curl -L https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
+    chsh -s $(which zsh)
 
-echo 'Installing zsh plugins'
-echo '------------'
-git clone https://github.com/jessarcher/zsh-artisan.git $HOME/.oh-my-zsh/custom/plugins/artisan
-git clone https://github.com/agkozak/zsh-z $HOME/.oh-my-zsh/custom/plugins/zsh-z
-# from https://software.opensuse.org/download.html?project=shells%3Azsh-users%3Azsh-autosuggestions&package=zsh-autosuggestions
-git clone https://github.com/zsh-users/zsh-autosuggestions $HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+    echo 'Install zsh theme'
+    echo '------------'
+    ln -s $HOME/.dotfiles/zshrc/cobalt2.zsh-theme $HOME/.oh-my-zsh/custom/themes/cobalt2.zsh-theme
+
+    echo 'Installing zsh plugins'
+    echo '------------'
+    git clone https://github.com/jessarcher/zsh-artisan.git $HOME/.oh-my-zsh/custom/plugins/artisan
+else
+    omz update
+fi
 
 echo 'Create symlinks'
 echo '------------'
@@ -56,16 +56,14 @@ vim +PluginInstall +qall
 rm $HOME/.screenrc
 ln -s $HOME/.dotfiles/shell/.screenrc $HOME/.screenrc
 
-echo 'Activate z'
-echo '------------'
-cd ~/.dotfiles/shell
-rm -f $HOME/.z
-ln -s $HOME/.dotfiles/shell/z.sh $HOME/.z
-
 echo 'update apt chache and find linux distro'
 echo '------------'
 sudo apt-get update
 linuxDistr=$(awk -F= '/^ID=/{print $2}' /etc/os-release)
+
+echo 'Install zsh-autosuggestions'
+echo '------------'
+sudo apt-get install -y zsh-autosuggestions
 
 echo 'Install wget'
 echo '------------'
@@ -107,9 +105,13 @@ echo 'Install screen'
 echo '-----------'
 sudo apt-get install -y screen
 
-echo 'Install screen'
+echo 'Install bat'
 echo '-----------'
 sudo apt-get install -y bat
+
+echo 'Install tree'
+echo '-----------'
+sudo apt-get install -y tree
 
 echo 'Install prettyping'
 echo '---------------------------'

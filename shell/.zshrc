@@ -8,7 +8,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="cobalt2"
-DEFAULT_USER="foobar"
+DEFAULT_USER="forge"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -61,11 +61,7 @@ DISABLE_AUTO_UPDATE="true"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
     git
-    yarn
-    npm
-    zsh-z
-    colorize
-    zsh-autosuggestions
+    z
     artisan
 )
 

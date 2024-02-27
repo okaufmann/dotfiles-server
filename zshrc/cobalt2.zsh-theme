@@ -48,7 +48,7 @@ prompt_end() {
 prompt_context() {
   local user=`whoami`
 
-  prompt_segment magenta default "%n@%M %(!.%{%F{yellow}%}.)✝"
+  prompt_segment magenta default "%n@%M %(!.%{%F{yellow}%}.)"
 }
 
 # Git: branch/detached head, dirty status
