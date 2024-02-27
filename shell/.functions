@@ -60,7 +60,7 @@ function digga() {
     dig +nocmd "$1" "$type" +multiline +noall +answer
 }
 
-function archive () {
+function archive() {
     ensurePackage zip
 
     zip -r "$1".zip "$1" ;
