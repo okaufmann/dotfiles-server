@@ -11,21 +11,29 @@ sudo apt-get install -y zsh
 echo 'Install oh-my-zsh'
 echo '-----------------'
 
-if [ ! -d "$HOME/.oh-my-zsh" ]; then
-    curl -L https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
-    chsh -s $(which zsh)
+curl -L https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
 
-    echo 'Install zsh theme'
-    echo '------------'
-    ln -s $HOME/.dotfiles/zshrc/cobalt2.zsh-theme $HOME/.oh-my-zsh/custom/themes/cobalt2.zsh-theme
+# Check if the current shell is not zsh
+if [ "$SHELL" != "$(which zsh)" ]; then
+    # Prompt the user for confirmation
+    read -p "Do you want to set zsh as your default shell? (y/n) " answer
 
-    echo 'Installing zsh plugins'
-    echo '------------'
-    git clone https://github.com/jessarcher/zsh-artisan.git $HOME/.oh-my-zsh/custom/plugins/artisan
-    git clone https://github.com/zsh-users/zsh-autosuggestions $HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions
-else
-    omz update
+    # Check if the user's answer is 'y' or 'Y'
+    if [[ "$answer" =~ ^[Yy]$ ]]; then
+        # Change the default shell to zsh
+        chsh -s $(which zsh)
+    fi
 fi
+
+echo 'Install zsh theme'
+echo '------------'
+ln -s $HOME/.dotfiles/zshrc/cobalt2.zsh-theme $HOME/.oh-my-zsh/custom/themes/cobalt2.zsh-theme
+
+echo 'Installing zsh plugins'
+echo '------------'
+git clone https://github.com/jessarcher/zsh-artisan.git $HOME/.oh-my-zsh/custom/plugins/artisan
+git clone https://github.com/zsh-users/zsh-autosuggestions $HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+
 
 echo 'Create symlinks'
 echo '------------'
