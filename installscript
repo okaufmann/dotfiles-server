@@ -138,7 +138,7 @@ if [ "$linuxDistr" == "debian" ] || [ "$linuxDistr" == "rasbian" ]; then
     sudo apt-get install fzf
 else
     git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-    ~/.fzf/install
+    yes | ~/.fzf/install
 fi
 
 echo 'Are you using iTerm?'
