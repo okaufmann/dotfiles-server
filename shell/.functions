@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
 
 function ensurePackage() {
-    if ! command -v "$1" &> /dev/null
-    then
-        echo "Installing $1"
-        sudo apt-get install "$1" -y
+    local commandName="$1"
+    local packageName="${2:-$commandName}"
+
+    if ! command -v "$commandName" &> /dev/null; then
+        echo "Installing $packageName"
+        sudo apt-get install "$packageName" -y
     fi
 }
 
@@ -20,7 +22,7 @@ function updateDotfiles() {
 }
 
 function ips() {
-    ensurePackage dnsutils
+    ensurePackage dns dnsutils
 
     nameservers=(8.8.8.8 8.8.4.4 1.1.1.1 195.129.12.122 192.76.144.66 158.43.240.3 77.88.8.8)
     type=${2:-A}
@@ -33,13 +35,13 @@ function ips() {
 }
 
 function wholisten() {
-    ensurePackage net-tools
+    ensurePackage netstat net-tools
 
     sudo netstat -ltnp | grep ":$1"
 }
 
 function ports() {
-    ensurePackage net-tools
+    ensurePackage netstat net-tools
 
     sudo netstat -ltnp
 }
@@ -52,7 +54,7 @@ function mkd() {
 
 # All the dig info
 function digga() {
-    ensurePackage dnsutils
+    ensurePackage dig dnsutils
 
     type=${2:-A}
     dig +nocmd "$1" "$type" +multiline +noall +answer
