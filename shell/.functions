@@ -14,7 +14,7 @@ function updateDotfiles() {
     git fetch origin main
     git checkout main
     git reset --hard origin/main
-    sh ./installscript
+    ./installscript
     cd $currentDir
     reloadcli
 }
