@@ -5,6 +5,7 @@ colorscheme delek
 
 "256 colours, please
 set t_Co=256
+set term=xterm-256color
 
 "line numbers"
 set number
@@ -54,6 +55,13 @@ set ruler
 " Show file title in terminal tab
 set title
 
+"-------- Fix Background for vim 9 -------"
+augroup transparent_bg | au!
+	au Colorscheme * hi Normal ctermbg=NONE
+	au Colorscheme pablo hi Identifier ctermfg=37
+	au Colorscheme pablo hi Special ctermfg=63
+augroup END
+color pablo
 
 "-------- Auto commands -------"
 "automatically source the Vimrc file on save.
