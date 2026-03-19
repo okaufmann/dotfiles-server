@@ -145,20 +145,37 @@ function watchfolder() {
 function fixHostnameForITerm() {
     # fix hostname for iTerm
     # https://gitlab.com/gnachman/iterm2/-/wikis/scp-not-connecting#how-can-i-override-the-hostname
-    hostname=$(hostname -f)
-    # if it ends in .localdomain, remove it
-    if [[ $hostname == *.localdomain ]]; then
-        hostname=${hostname%.localdomain}
+    local detected_host iterm2_host custom_host exports_file
+    detected_host=$(hostname -f)
+    if [[ $detected_host == *.localdomain ]]; then
+        detected_host=${detected_host%.localdomain}
     fi
 
-    # check if file ~/.dotfiles-custom/shell/.exports does exist. If not, create it (also ensure folder path exists)
-    if [ ! -f $HOME/.dotfiles-custom/shell/.exports ]; then
-        mkdir -p $HOME/.dotfiles-custom/shell
-        touch $HOME/.dotfiles-custom/shell/.exports
+    echo "iTerm hostname (from this machine): $detected_host"
+    read -r -p "Use this for upload/download (scp) targets? [Y/n]: " use_detected
+    iterm2_host=$detected_host
+    if [[ $use_detected =~ ^[Nn]$ ]]; then
+        read -r -p "Enter FQDN (e.g. server.example.com): " custom_host
+        custom_host="${custom_host#"${custom_host%%[![:space:]]*}"}"
+        custom_host="${custom_host%"${custom_host##*[![:space:]]}"}"
+        if [ -n "$custom_host" ]; then
+            iterm2_host=$custom_host
+        else
+            echo "Empty input; keeping detected hostname: $detected_host"
+        fi
     fi
 
-    # add export to ~/.dotfiles-custom/shell/.exports
-    echo "export iterm2_hostname=$hostname" >> $HOME/.dotfiles-custom/shell/.exports
+    exports_file=$HOME/.dotfiles-custom/shell/.exports
+    if [ ! -f "$exports_file" ]; then
+        mkdir -p "$HOME/.dotfiles-custom/shell"
+        touch "$exports_file"
+    fi
+
+    if [ -s "$exports_file" ]; then
+        grep -v '^export iterm2_hostname=' "$exports_file" > "${exports_file}.tmp" && mv "${exports_file}.tmp" "$exports_file"
+    fi
+
+    echo "export iterm2_hostname=$iterm2_host" >> "$exports_file"
 
     reloadcli
 }
